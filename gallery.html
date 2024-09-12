@@ -6,6 +6,34 @@
     <title>Photo Gallery</title>
     <link rel="stylesheet" href="gallery.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.10.4/gsap.min.js"></script>
+    <style>
+        /* Button Styling */
+        #play-btn {
+            background-color: #ff69b4; /* Pink color */
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            font-size: 16px;
+            font-family: 'Arial', sans-serif;
+            border-radius: 30px;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+            position: absolute;
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        #play-btn:hover {
+            background-color: #ff1493; /* Darker pink on hover */
+            transform: scale(1.1); /* Slightly grow the button on hover */
+        }
+
+        #play-btn:active {
+            background-color: #ff1493;
+            transform: scale(1.05);
+        }
+    </style>
 </head>
 <body>
     <div class="gallery-container">
@@ -15,7 +43,6 @@
         <div class="photo" style="background-image: url('image4.jpg');"></div>
         <div class="photo" style="background-image: url('image5.jpg');"></div>
         <div class="photo" style="background-image: url('image6.jpg');"></div>
-
     </div>
 
     <div class="floating-hearts">
@@ -24,8 +51,11 @@
         <div class="heart"></div>
     </div>
 
+    <!-- Play Music Button -->
+    <button id="play-btn">Play Music</button>
+
     <!-- Background music -->
-    <audio id="bg-music" src="song.mp3" autoplay loop hidden></audio>
+    <audio id="bg-music" src="song.mp3" loop hidden></audio>
 
     <script>
         // GSAP Animation for Slideshow (Auto-fade between images)
@@ -42,7 +72,16 @@
             opacity: 0
         });
 
-        // Automatic redirect after 10 seconds
+        // Play music on button click
+        const playButton = document.getElementById('play-btn');
+        const bgMusic = document.getElementById('bg-music');
+        
+        playButton.addEventListener('click', function() {
+            bgMusic.play();
+            playButton.style.display = 'none'; // Hide button after music starts
+        });
+
+        // Automatic redirect after 25 seconds
         setTimeout(function() {
             window.location.href = 'message.html';
         }, 25000);
