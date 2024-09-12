@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Special Wish</title>
+    <link rel="stylesheet" href="message.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/particles.js/2.0.0/particles.min.js"></script>
+</head>
+<body>
+    <div class="message-container">
+        <h1 class="animated-text">Wishing you endless love and joy! 🎂</h1>
+        <div class="cake-section">
+            <img src="emoji.png" class="cake">
+            <p class="cute-message">Every moment with you is sweeter than the last.</p>
+        </div>
+    </div>
+
+    <!-- Particles effect -->
+    <div id="particles-js"></div>
+
+    <!-- Background music -->
+
+    <script>
+        // Initialize particles.js with custom particles (hearts or sparkles)
+        particlesJS('particles-js', {
+            "particles": {
+                "number": {
+                    "value": 80,
+                    "density": {
+                        "enable": true,
+                        "value_area": 800
+                    }
+                },
+                "shape": {
+                    "type": "image",
+                    "image": {
+                        "src": "heart.png",  // Use a heart shape for the particles
+                        "width": 100,
+                        "height": 100
+                    }
+                },
+                "opacity": {
+                    "value": 0.6,
+                    "random": true
+                },
+                "size": {
+                    "value": 10,
+                    "random": true
+                },
+                "move": {
+                    "speed": 6,
+                    "random": true,
+                    "direction": "top",
+                    "out_mode": "out"
+                }
+            },
+            "interactivity": {
+                "events": {
+                    "onhover": {
+                        "enable": true,
+                        "mode": "repulse"
+                    }
+                }
+            }
+        });
+
+        // Automatic redirection back to Home after 10 seconds
+        setTimeout(function() {
+            window.location.href = 'index.html';
+        }, 10000);
+    </script>
+</body>
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Photo Gallery</title>
+    <link rel="stylesheet" href="gallery.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.10.4/gsap.min.js"></script>
+</head>
+<body>
+    <div class="gallery-container">
+        <div class="photo" style="background-image: url('image1.jpg');"></div>
+        <div class="photo" style="background-image: url('image2.jpg');"></div>
+        <div class="photo" style="background-image: url('image3.jpg');"></div>
+        <div class="photo" style="background-image: url('image4.jpg');"></div>
+        <div class="photo" style="background-image: url('image5.jpg');"></div>
+        <div class="photo" style="background-image: url('image6.jpg');"></div>
+
+    </div>
+
+    <div class="floating-hearts">
+        <div class="heart"></div>
+        <div class="heart"></div>
+        <div class="heart"></div>
+    </div>
+
+    <!-- Background music -->
+    <audio id="bg-music" src="song.mp3" autoplay loop hidden></audio>
+
+    <script>
+        // GSAP Animation for Slideshow (Auto-fade between images)
+        gsap.fromTo('.photo', { opacity: 0 }, { opacity: 1, stagger: 2, duration: 2, repeat: -1, yoyo: true });
+
+        // Floating hearts animation
+        gsap.to('.heart', {
+            y: -800,
+            duration: 6,
+            repeat: -1,
+            stagger: 1,
+            ease: "power1.inOut",
+            delay: 1,
+            opacity: 0
+        });
+
+        // Automatic redirect after 10 seconds
+        setTimeout(function() {
+            window.location.href = 'message.html';
+        }, 25000);
+    </script>
+</body>
+</html>

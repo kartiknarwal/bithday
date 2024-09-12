@@ -1,0 +1,79 @@
+body {
+    margin: 0;
+    height: 100vh;
+    background: linear-gradient(135deg, #FF9A9E 10%, #FAD0C4 100%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Poppins', sans-serif;
+    color: white;
+    overflow: hidden;
+    position: relative;
+}
+
+/* Glowing background effect */
+body::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 400px;
+    height: 400px;
+    background: radial-gradient(circle, rgba(255,255,255,0.3), transparent);
+    transform: translate(-50%, -50%);
+    filter: blur(100px);
+    z-index: -2;
+}
+
+.message-container {
+    text-align: center;
+    z-index: 1;
+}
+
+/* Smooth animated text */
+.animated-text {
+    font-size: 3.5rem;
+    color: white;
+    text-shadow: 0 0 30px rgba(255, 255, 255, 0.5);
+    animation: fadeIn 3s ease-in-out;
+}
+
+@keyframes fadeIn {
+    0% { opacity: 0; transform: translateY(-20px); }
+    100% { opacity: 1; transform: translateY(0); }
+}
+
+/* Cake bounce animation */
+.cake {
+    width: 250px;
+    animation: bounce 4s ease-in-out infinite, glow 2s infinite alternate;
+}
+
+@keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-20px); }
+}
+
+@keyframes glow {
+    0% { box-shadow: 0 0 10px rgba(255, 255, 255, 0.5); }
+    100% { box-shadow: 0 0 20px rgba(255, 255, 255, 1); }
+}
+
+/* Message text */
+.cute-message {
+    font-size: 1.8rem;
+    margin-top: 20px;
+    opacity: 0.9;
+    color: #fff;
+    animation: fadeIn 4s ease-in-out;
+}
+
+/* Particles container */
+#particles-js {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: -1;
+}

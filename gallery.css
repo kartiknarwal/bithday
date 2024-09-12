@@ -1,0 +1,119 @@
+/* Existing styles remain the same */
+
+body {
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background: radial-gradient(circle at center, #FF9A9E, #FAD0C4);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    font-family: 'Poppins', sans-serif;
+    position: relative;
+}
+
+/* Gallery container for photos */
+.gallery-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3 columns layout */
+    grid-template-rows: repeat(2, 1fr);    /* 2 rows layout */
+    gap: 20px;
+    width: 80%;
+    max-width: 1000px;
+    height: auto;
+    padding: 20px;
+}
+
+/* Individual photos */
+.photo {
+    width: 100%;
+    height: 300px;
+    background-size: cover;
+    background-position: center;
+    border-radius: 20px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Hover effects for photos */
+.photo:hover {
+    transform: scale(1.1);
+    box-shadow: 0px 15px 30px rgba(0, 0, 0, 0.3);
+}
+
+/* Floating hearts */
+.floating-hearts {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+}
+
+.heart {
+    position: absolute;
+    bottom: -150px;
+    width: 30px;
+    height: 30px;
+    background-color: rgba(255, 105, 180, 0.8);
+    border-radius: 50%;
+    animation: float 5s infinite;
+}
+
+.heart:nth-child(1) {
+    left: 20%;
+    width: 40px;
+    height: 40px;
+    animation-duration: 4s;
+}
+
+.heart:nth-child(2) {
+    left: 50%;
+    width: 60px;
+    height: 60px;
+    animation-duration: 6s;
+}
+
+.heart:nth-child(3) {
+    left: 80%;
+    width: 50px;
+    height: 50px;
+    animation-duration: 5s;
+}
+
+@keyframes float {
+    0% {
+        transform: translateY(0);
+    }
+    100% {
+        transform: translateY(-100vh);
+    }
+}
+
+/* Responsive Styles */
+@media screen and (max-width: 768px) {
+    .gallery-container {
+        grid-template-columns: repeat(3, 1fr); /* Keep 3 columns for tablets */
+        grid-template-rows: repeat(2, 1fr);    /* Keep 2 rows */
+        gap: 15px;
+        width: 90%; /* Slightly wider on smaller screens */
+    }
+
+    .photo {
+        height: 250px; /* Adjust height for tablet screens */
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .gallery-container {
+        grid-template-columns: repeat(3, 1fr); /* Keep 3 columns for mobile */
+        grid-template-rows: repeat(2, 1fr);    /* Keep 2 rows */
+        gap: 10px;
+        width: 95%; /* Maximize width for mobile screens */
+    }
+
+    .photo {
+        height: 200px; /* Adjust height for smaller screens */
+    }
+}

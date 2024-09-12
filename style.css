@@ -1,0 +1,59 @@
+body {
+    height: 100vh;
+    background: linear-gradient(135deg, #FF9A9E 10%, #FAD0C4 100%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Poppins', sans-serif;
+    color: white;
+    overflow: hidden;
+}
+
+.home-container {
+    text-align: center;
+    position: relative;
+}
+
+.glowing-text {
+    font-size: 4rem;
+    color: #fff;
+    text-shadow: 0 0 15px #FF69B4, 0 0 30px #FF69B4;
+    animation: glow 2s infinite alternate;
+}
+
+@keyframes glow {
+    from { text-shadow: 0 0 15px #FF69B4; }
+    to { text-shadow: 0 0 30px #FF69B4; }
+}
+
+.intro-text {
+    margin-top: 20px;
+    font-size: 1.5rem;
+    opacity: 0.9;
+}
+
+.cake-image {
+    margin-top: 30px;
+    width: 250px;
+    height: auto;
+    animation: bounce 2s infinite;
+}
+
+@keyframes bounce {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-20px);
+    }
+}
+
+/* Floating Hearts Container */
+#hearts-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+}
